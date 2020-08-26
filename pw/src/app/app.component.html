@@ -1,0 +1,40 @@
+<h1>Password Generator</h1>
+
+<div>
+  <label for="">Enter length</label>
+  <input (change)="changeLength($event.target.value)">
+
+</div>
+
+<div>
+  <label for="letters">USe letters</label>
+  <input type="checkbox" id="letters" (change)="onChangeLetters()">
+</div>
+
+<div>
+  <label for="numbers">Use numbers</label>
+  <input type="checkbox" id="numbers" (change)="onChangeNumbers()">
+</div>
+
+<div>
+  <label for="symbol">Use symbol</label>
+  <input type="checkbox" id="symbol" (change)="onChangeSymbol()">
+</div>
+
+<div>
+  <button [disabled]="!(length && (letterChange || numberChange || symbolChange))" (click)="onButtonClick()">Generate
+    !</button>
+</div>
+
+<div>
+  <label for="">Your Password</label>
+  <!-- we can bind the variable in the password -->
+  <input type="text" [value]="password">
+  <!-- we can also call function from within the property binding as shown below -->
+  <!-- <input type="text" [value]="getPassword()"> -->
+</div>
+
+{{ password }}
+<!-- we can also call function from within the string interpolation as shown below -->
+{{ getPassword() }}
+<router-outlet></router-outlet>
